@@ -12,27 +12,43 @@
             <p class="subtitulo">Organize seu dia com estilo</p>
         </header>
         <main>
+            <div class="nova-tarefa-container">
+                <form id="form-nova-tarefa">
+                    <input type="text" id="nova-tarefa" placeholder="Adicione uma nova tarefa" aria-label="Nova tarefa" />
+                    <button type="button" id="status-tarefa" data-status="pendente" aria-pressed="false">Pendente</button>
+                    <button id="btn-adicionar" type="submit">Adicionar</button>
+                </form>
+            </div>
             <section>
                 <h2>TÍTULO 2</h2>
+            <section class="Tipos">
+                <h2>Procure por tipos:</h2>
+                <select id="estados" class="botao">
+                    <option value="aaaa">Todos</option>
+                    <option value="Feitas">Feitas</option>
+                    <option value="Pendentes">pendentes</option>
+                </select>
             </section>
-            <section>
+            <section id="Pendentes">
                 <ul>
-                    <li>item:</li>
-                    <li>item:</li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
                 </ul>
             </section>
-            <section>
+            <section id="Feitos">
                 <ul>
-                    <li>item:</li>
-                    <li>item:</li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
                 </ul>
             </section>
         </main>
+        <script src="script.js"></script>
         <footer>
             <p>2026 Gerenciador de Tarefas - Feito por:</p>
             <a href="https://github.com" target="_blank">GitHub</a>
             <a href="https://github.com" target="_blank">Repositório</a>
             <a href="https://github.com" target="_blank">Contribuir</a>
         </footer>
+        <script src="botao.js"></script>
     </body>
 </html>
