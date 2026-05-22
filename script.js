@@ -62,7 +62,6 @@ document.getElementById('form-nova-tarefa').addEventListener('submit', function(
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'check-tarefa';
-    // definir estado inicial conforme botão de status
     const status = statusButton ? statusButton.dataset.status : 'pendente';
     if(status === 'concluida') checkbox.checked = true;
     label.appendChild(checkbox);
@@ -70,7 +69,6 @@ document.getElementById('form-nova-tarefa').addEventListener('submit', function(
     label.appendChild(createStatusBadge(status));
     li.appendChild(label);
     if(checkbox.checked) li.classList.add('completed');
-    // adiciona ao primeiro UL após o título
     const alvo = document.querySelector('main section:nth-of-type(2) ul');
     if(alvo) alvo.appendChild(li);
     input.value = '';
