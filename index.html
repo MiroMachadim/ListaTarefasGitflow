@@ -12,22 +12,30 @@
             <p class="subtitulo">Organize seu dia com estilo</p>
         </header>
         <main>
+            <div class="nova-tarefa-container">
+                <form id="form-nova-tarefa">
+                    <input type="text" id="nova-tarefa" placeholder="Adicione uma nova tarefa" aria-label="Nova tarefa" />
+                    <button type="button" id="status-tarefa" data-status="pendente" aria-pressed="false">Pendente</button>
+                    <button id="btn-adicionar" type="submit">Adicionar</button>
+                </form>
+            </div>
             <section>
                 <h2>TÍTULO 2</h2>
             </section>
             <section>
                 <ul>
-                    <li>item:</li>
-                    <li>item:</li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
                 </ul>
             </section>
             <section>
                 <ul>
-                    <li>item:</li>
-                    <li>item:</li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
+                    <li><label><input type="checkbox" class="check-tarefa"> item:</label></li>
                 </ul>
             </section>
         </main>
+        <script src="script.js"></script>
         <footer>
             <p>2026 Gerenciador de Tarefas - Feito por:</p>
             <a href="https://github.com" target="_blank">GitHub</a>
