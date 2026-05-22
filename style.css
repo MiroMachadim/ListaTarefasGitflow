@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
     margin: 0;
@@ -7,20 +7,20 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #F3E5F5;
+    font-family: "Poppins", sans-serif;
+    background-color: #f3e5f5;
     color: #333;
 }
 
 header {
-    background-color: #7B1FA2;
+    background-color: #7b1fa2;
     color: white;
     padding: 20px;
     text-align: center;
 }
 
 nav {
-    background-color: #4A148C;
+    background-color: #4a148c;
     overflow: hidden;
 }
 
@@ -34,7 +34,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #9C27B0;
+    background-color: #9c27b0;
     color: white;
 }
 
@@ -42,8 +42,8 @@ main {
     padding: 20px;
 }
 
-footer {    
-    background-color: #4A148C;
+footer {
+    background-color: #4a148c;
     color: white;
     text-align: center;
     padding: 10px;
@@ -168,11 +168,11 @@ main section ul li.completed {
 }
 
 .task-list li {
-    background-color: #E8D4F1;
+    background-color: #e8d4f1;
     margin: 10px 0;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(123,31,162,0.2);
+    box-shadow: 0 2px 4px rgba(123, 31, 162, 0.2);
 }
 
 .task-list li.completed {
@@ -183,7 +183,7 @@ main section ul li.completed {
 
 .task-list li .delete-btn {
     float: right;
-    background-color: #C2185B;
+    background-color: #c2185b;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -191,8 +191,23 @@ main section ul li.completed {
 }
 
 .task-list li .delete-btn:hover {
-    background-color: #880E4F;
+    background-color: #880e4f;
 }
 
-
-
+.Tipos {
+    display: flex;
+}
+.botao {
+    padding-bottom: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #f3e5f5;
+    border-radius: 0;
+    padding-left: 5 px;
+    font-family: "Poppins", sans-serif;
+    font-size: 26 px;
+}
+option:checked {
+    font-weight: bold;
+}
