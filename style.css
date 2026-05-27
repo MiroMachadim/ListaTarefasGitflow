@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+:root {
+    --dark-amethyst: #10002b;
+    --dark-amethyst-2: #240046;
+    --indigo-ink: #3c096c;
+    --indigo-velvet: #5a189a;
+    --royal-violet: #7b2cbf;
+    --lavender-purple: #9d4edd;
+    --mauve-magic: #c77dff;
+    --mauve: #e0aaff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,19 +19,20 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f3e5f5;
+    background-color: #f5eeff;
     color: #333;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #7b1fa2;
+    background-color: var(--indigo-velvet);
     color: white;
     padding: 20px;
     text-align: center;
 }
 
 nav {
-    background-color: #4a148c;
+    background-color: var(--indigo-ink);
     overflow: hidden;
 }
 
@@ -34,28 +46,40 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #9c27b0;
+    background-color: var(--royal-violet);
     color: white;
 }
 
 main {
     padding: 20px;
+    padding-bottom: 80px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 footer {
-    background-color: #4a148c;
+    background-color: var(--indigo-ink);
     color: white;
     text-align: center;
     padding: 10px;
     position: fixed;
     width: 100%;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+footer a {
+    color: var(--mauve);
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 main section h2 {
@@ -66,20 +90,19 @@ main section ul {
     padding-left: 20px;
 }
 
-main section ul li label{
+main section ul li label {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-
-.check-tarefa{
+.check-tarefa {
     width: 16px;
     height: 16px;
+    accent-color: var(--royal-violet);
 }
 
 main section ul li.completed {
-    text-decoration: line-through;
     color: #888;
 }
 
@@ -93,13 +116,20 @@ main section ul li.completed {
     display: flex;
     gap: 2px;
     align-items: center;
+    max-width: 100%;
 }
 
 #nova-tarefa {
     flex: 1;
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--mauve);
     border-radius: 4px;
+}
+
+#nova-tarefa:focus {
+    outline: none;
+    border-color: var(--lavender-purple);
+    box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.15);
 }
 
 #status-tarefa {
@@ -127,7 +157,6 @@ main section ul li.completed {
 }
 
 .task-status {
-    margin-left: auto;
     padding: 2px 10px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -135,23 +164,27 @@ main section ul li.completed {
     text-transform: uppercase;
     letter-spacing: 0.02em;
     border: 1px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .task-status.pendente {
     color: #B71C1C;
     background-color: #FFEBEE;
     border-color: #D32F2F;
+    margin-right: 20px;
 }
 
 .task-status.concluida {
     color: #1B5E20;
     background-color: #E8F5E9;
     border-color: #2E7D32;
+    margin-right: 20px;
 }
 
 #btn-adicionar {
     padding: 8px 12px;
-    background-color: #7B1FA2;
+    background-color: var(--royal-violet);
     color: white;
     border: none;
     border-radius: 4px;
@@ -159,7 +192,7 @@ main section ul li.completed {
 }
 
 #btn-adicionar:hover {
-    background-color: #6A1B9A;
+    background-color: var(--indigo-velvet);
 }
 
 .task-list {
@@ -168,17 +201,15 @@ main section ul li.completed {
 }
 
 .task-list li {
-    background-color: #e8d4f1;
+    background-color: var(--mauve);
     margin: 10px 0;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(123, 31, 162, 0.2);
+    box-shadow: 0 2px 4px rgba(90, 24, 154, 0.2);
 }
 
 .task-list li.completed {
-    text-decoration: line-through;
     color: #888;
-
 }
 
 .task-list li .delete-btn {
@@ -196,18 +227,479 @@ main section ul li.completed {
 
 .Tipos {
     display: flex;
+    align-items: center;
 }
+
 .botao {
     padding-bottom: 0;
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: #f3e5f5;
+    background-color: #f5eeff;
     border-radius: 0;
-    padding-left: 5 px;
     font-family: "Poppins", sans-serif;
-    font-size: 26 px;
+    font-size: 16px;
 }
-option:checked {
-    font-weight: bold;
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(0, 0, 0, 0.12);
+    border-top-color: var(--royal-violet);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    animation: spin 0.9s linear infinite;
+}
+
+.spinner[hidden] {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error {
+    align-items: center;
+    gap: 6px;
+    color: #B71C1C;
+    font-size: 0.82rem;
+    font-weight: 500;
+    background-color: #FFEBEE;
+    border: 1px solid #D32F2F;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-top: 6px;
+}
+
+.error::before {
+    content: "⚠ ";
+    font-size: 0.9rem;
+}
+
+.input-error {
+    border-color: #D32F2F;
+    background-color: #FFEBEE;
+}
+
+.desabilitado {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.processando {
+    opacity: 0.8;
+}
+
+.dropdown-filtro {
+    position: relative;
+    margin-left: 10px;
+}
+
+.dropdown-btn {
+    appearance: none;
+    padding: 6px 12px;
+    border: 1px solid var(--lavender-purple);
+    border-radius: 8px;
+    background-color: #f5eeff;
+    color: var(--royal-violet);
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-btn:hover {
+    border-color: var(--royal-violet);
+    background-color: var(--mauve);
+}
+
+.dropdown-btn:focus {
+    box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.2);
+}
+
+.dropdown-seta {
+    font-size: 0.7rem;
+}
+
+.dropdown-lista {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background-color: #f5eeff;
+    border: 1px solid var(--lavender-purple);
+    border-radius: 8px;
+    list-style: none;
+    padding: 4px 0;
+    min-width: 140px;
+    z-index: 100;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(90, 24, 154, 0.15);
+}
+
+.dropdown-lista.aberto {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    color: #333;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--mauve);
+    color: var(--indigo-velvet);
+}
+
+.dropdown-item.ativo {
+    background-color: var(--lavender-purple);
+    color: white;
+    font-weight: 500;
+}
+
+#Feitos, #Pendentes {
+    display: block;
+}
+
+#Pendentes ul, #Feitos ul {
+    padding-left: 20px;
+    list-style: none;
+}
+
+#Pendentes ul li, #Feitos ul li {
+    position: relative;
+    padding-left: 24px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#Pendentes ul li::before, #Feitos ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-image: url("right-arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Tipos h2 {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 16px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: 16px;
+        padding-bottom: 120px;
+        max-width: 100%;
+    }
+
+    .nova-tarefa-container {
+        padding: 0 16px;
+        max-width: 100%;
+    }
+
+    #form-nova-tarefa {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #nova-tarefa {
+        flex: 1 1 100%;
+        font-size: 0.95rem;
+    }
+
+    #status-tarefa {
+        flex: 1;
+        min-width: unset;
+        max-width: unset;
+        font-size: 0.9rem;
+    }
+
+    #btn-adicionar {
+        flex: 1;
+        font-size: 0.9rem;
+    }
+
+    .Tipos {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .Tipos h2 {
+        font-size: 1.1rem;
+    }
+
+    .dropdown-btn {
+        font-size: 0.85rem;
+    }
+
+    #Pendentes ul li, #Feitos ul li {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .task-status.pendente,
+    .task-status.concluida {
+        margin-right: 8px;
+        font-size: 0.7rem;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    footer a {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main {
+        max-width: 90%;
+        padding: 20px 24px;
+        padding-bottom: 100px;
+    }
+
+    .nova-tarefa-container {
+        max-width: 90%;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .Tipos h2 {
+        font-size: 1.2rem;
+    }
+
+    footer a {
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 14px;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    main {
+        padding: 12px;
+        padding-bottom: 130px;
+    }
+
+    .nova-tarefa-container {
+        padding: 0 12px;
+    }
+
+    #form-nova-tarefa {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #nova-tarefa {
+        width: 100%;
+        flex: 1 1 100%;
+        font-size: 0.9rem;
+    }
+
+    #status-tarefa {
+        flex: 1;
+        min-width: unset;
+        max-width: unset;
+        font-size: 0.85rem;
+    }
+
+    #btn-adicionar {
+        flex: 1;
+        font-size: 0.85rem;
+    }
+
+    .error {
+        font-size: 0.78rem;
+        padding: 5px 10px;
+    }
+
+    .Tipos {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .Tipos h2 {
+        font-size: 1rem;
+    }
+
+    .dropdown-filtro {
+        margin-left: 0;
+    }
+
+    .dropdown-btn {
+        font-size: 0.82rem;
+        padding: 5px 10px;
+    }
+
+    #Pendentes ul li, #Feitos ul li {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding-left: 20px;
+    }
+
+    .task-status.pendente,
+    .task-status.concluida {
+        margin-right: 0;
+        font-size: 0.65rem;
+    }
+
+    footer {
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+
+    footer a {
+        font-size: 0.65rem;
+    }
+
+    main section h2 {
+        font-size: 1rem;
+        margin-left: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    header p.subtitulo {
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 10px;
+        padding-bottom: 140px;
+    }
+
+    .nova-tarefa-container {
+        padding: 0 10px;
+    }
+
+    #nova-tarefa {
+        font-size: 0.85rem;
+        padding: 7px 8px;
+    }
+
+    #status-tarefa {
+        font-size: 0.8rem;
+        padding: 7px 8px;
+    }
+
+    #btn-adicionar {
+        font-size: 0.8rem;
+        padding: 7px 8px;
+    }
+
+    .task-status.pendente,
+    .task-status.concluida {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+
+    .dropdown-btn {
+        font-size: 0.78rem;
+        padding: 5px 8px;
+    }
+
+    .dropdown-item {
+        font-size: 0.82rem;
+        padding: 7px 12px;
+    }
+
+    .Tipos h2 {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 6px;
+    }
+
+    footer p {
+        font-size: 0.7rem;
+    }
+
+    footer a {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1rem;
+    }
+
+    #nova-tarefa,
+    #status-tarefa,
+    #btn-adicionar {
+        font-size: 0.75rem;
+        padding: 6px 7px;
+    }
+
+    .task-status.pendente,
+    .task-status.concluida {
+        font-size: 0.55rem;
+        padding: 2px 5px;
+    }
+
+    .Tipos h2 {
+        font-size: 0.85rem;
+    }
+
+    footer a {
+        font-size: 0.55rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    main {
+        max-width: 860px;
+    }
+
+    .nova-tarefa-container {
+        max-width: 860px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
 }
