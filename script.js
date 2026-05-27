@@ -103,45 +103,68 @@ if(formulario){
         if(campoTarefa) campoTarefa.disabled = true;
 
         setTimeout(() => {
-            const itemTarefa = document.createElement('li');
-            itemTarefa.style.display = 'flex';
-            itemTarefa.style.alignItems = 'center';
-            itemTarefa.style.justifyContent = 'space-between';
-
-            const rotulo = document.createElement('label');
-            rotulo.style.display = 'flex';
-            rotulo.style.alignItems = 'center';
-            rotulo.style.gap = '8px';
-
-            const caixaChecagem = document.createElement('input');
-            caixaChecagem.type = 'checkbox';
-            caixaChecagem.className = 'check-tarefa';
             const statusLocal = botaoStatusLocal ? botaoStatusLocal.dataset.status : 'pendente';
-            if(statusLocal === 'concluida') caixaChecagem.checked = true;
-
-            rotulo.appendChild(caixaChecagem);
-            rotulo.appendChild(document.createTextNode(textoTarefa));
-            itemTarefa.appendChild(rotulo);
-            itemTarefa.appendChild(criarEtiquetaStatus(statusLocal));
-
-            if(caixaChecagem.checked) itemTarefa.classList.add('completed');
-
-            const secaoDestino = statusLocal === 'concluida'
-                ? document.querySelector('#Feitos ul')
-                : document.querySelector('#Pendentes ul');
-            if(secaoDestino) secaoDestino.appendChild(itemTarefa);
-
-            if(campoTarefa) campoTarefa.value = '';
-            if(botaoStatusLocal){
-                botaoStatusLocal.dataset.status = 'pendente';
-                botaoStatusLocal.textContent = 'Pendente';
-                botaoStatusLocal.classList.add('status-pendente');
-                botaoStatusLocal.classList.remove('status-concluida');
-                botaoStatusLocal.setAttribute('aria-pressed', 'false');
+            const dados = {
+                tarefa: textoTarefa,
+                status: statusLocal,
             }
-            if(elementoSpinner) elementoSpinner.hidden = true;
-            if(botaoAdicionar) botaoAdicionar.disabled = false;
-            if(campoTarefa){ campoTarefa.disabled = false; campoTarefa.focus(); }
+            
+
+            let dadosSalvos = localStorage.getItem("Tarefas") ? JSON.parse(localStorage.getItem("Tarefas")) : []
+            dadosSalvos.push(dados);
+            let dadosJson = JSON.stringify(dadosSalvos);
+            localStorage.setItem("Tarefas", dadosJson);
+            navigation.reload()
         }, 400);
     });
+
 }
+
+function carregarDadosTarefa() { 
+    let dadosSalvos = localStorage.getItem("Tarefas") ? JSON.parse(localStorage.getItem("Tarefas")) : []
+    
+    for(const tarefa of dadosSalvos) {
+        const itemTarefa = document.createElement('li');
+        itemTarefa.style.display = 'flex';
+        itemTarefa.style.alignItems = 'center';
+        itemTarefa.style.justifyContent = 'space-between';
+
+        const rotulo = document.createElement('label');
+        rotulo.style.display = 'flex';
+        rotulo.style.alignItems = 'center';
+        rotulo.style.gap = '8px';
+
+        const caixaChecagem = document.createElement('input');
+        caixaChecagem.type = 'checkbox';
+        caixaChecagem.className = 'check-tarefa';
+        const statusLocal = tarefa.status;
+        if(statusLocal === 'concluida') caixaChecagem.checked = true;
+
+        rotulo.appendChild(caixaChecagem);
+        rotulo.appendChild(document.createTextNode(tarefa.tarefa));
+        itemTarefa.appendChild(rotulo);
+        itemTarefa.appendChild(criarEtiquetaStatus(statusLocal));
+
+        if(caixaChecagem.checked) itemTarefa.classList.add('completed');
+        
+        const secaoDestino = statusLocal === 'concluida'
+            ? document.querySelector('#Feitos ul')
+            : document.querySelector('#Pendentes ul');
+        if(secaoDestino) secaoDestino.appendChild(itemTarefa);
+
+        if(campoTarefa) campoTarefa.value = '';
+        // if(botaoStatusLocal){
+        //     botaoStatusLocal.dataset.status = 'pendente';
+        //     botaoStatusLocal.textContent = 'Pendente';
+        //     botaoStatusLocal.classList.add('status-pendente');
+        //     botaoStatusLocal.classList.remove('status-concluida');
+        //     botaoStatusLocal.setAttribute('aria-pressed', 'false');
+        // }
+        // if(elementoSpinner) elementoSpinner.hidden = true;
+        // if(botaoAdicionar) botaoAdicionar.disabled = false;
+        // if(campoTarefa){ campoTarefa.disabled = false; campoTarefa.focus(); }
+    }
+    
+}
+
+carregarDadosTarefa();
