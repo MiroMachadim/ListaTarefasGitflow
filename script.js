@@ -153,16 +153,6 @@ function carregarDadosTarefa() {
         if(secaoDestino) secaoDestino.appendChild(itemTarefa);
 
         if(campoTarefa) campoTarefa.value = '';
-        // if(botaoStatusLocal){
-        //     botaoStatusLocal.dataset.status = 'pendente';
-        //     botaoStatusLocal.textContent = 'Pendente';
-        //     botaoStatusLocal.classList.add('status-pendente');
-        //     botaoStatusLocal.classList.remove('status-concluida');
-        //     botaoStatusLocal.setAttribute('aria-pressed', 'false');
-        // }
-        // if(elementoSpinner) elementoSpinner.hidden = true;
-        // if(botaoAdicionar) botaoAdicionar.disabled = false;
-        // if(campoTarefa){ campoTarefa.disabled = false; campoTarefa.focus(); }
     }
     
 }
