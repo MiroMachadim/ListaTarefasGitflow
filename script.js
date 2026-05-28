@@ -16,7 +16,7 @@ document.addEventListener("change", function (evento) {
     }
   }
 });
-const theme = document.getElementById("tema");
+const theme = document.body;
 let darkmode = localStorage.getItem("darkmmode");
 function abilitarDarkMode() {
   theme.classList.add("dark-mode");
@@ -144,7 +144,7 @@ if (formulario) {
       dadosSalvos.push(dados);
       let dadosJson = JSON.stringify(dadosSalvos);
       localStorage.setItem("Tarefas", dadosJson);
-      navigation.reload();
+      window.location.reload();
     }, 400);
   });
 }
