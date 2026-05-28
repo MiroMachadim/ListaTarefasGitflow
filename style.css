@@ -699,8 +699,13 @@ main section ul li.completed {
         font-size: 0.55rem;
     }
 }
-.checkbox {
-    justify-content: center;
+.estilo {
+    text-align: center;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
 }
 
 @media (min-width: 1200px) {
