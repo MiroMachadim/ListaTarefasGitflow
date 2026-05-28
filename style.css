@@ -145,15 +145,15 @@ main section ul li.completed {
 }
 
 #status-tarefa.status-pendente {
-    border-color: #D32F2F;
-    background-color: #FFEBEE;
-    color: #B71C1C;
+    border-color: #d32f2f;
+    background-color: #ffebee;
+    color: #b71c1c;
 }
 
 #status-tarefa.status-concluida {
-    border-color: #2E7D32;
-    background-color: #E8F5E9;
-    color: #1B5E20;
+    border-color: #2e7d32;
+    background-color: #e8f5e9;
+    color: #1b5e20;
 }
 
 .task-status {
@@ -169,16 +169,16 @@ main section ul li.completed {
 }
 
 .task-status.pendente {
-    color: #B71C1C;
-    background-color: #FFEBEE;
-    border-color: #D32F2F;
+    color: #b71c1c;
+    background-color: #ffebee;
+    border-color: #d32f2f;
     margin-right: 20px;
 }
 
 .task-status.concluida {
-    color: #1B5E20;
-    background-color: #E8F5E9;
-    border-color: #2E7D32;
+    color: #1b5e20;
+    background-color: #e8f5e9;
+    border-color: #2e7d32;
     margin-right: 20px;
 }
 
@@ -258,17 +258,19 @@ main section ul li.completed {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .error {
     align-items: center;
     gap: 6px;
-    color: #B71C1C;
+    color: #b71c1c;
     font-size: 0.82rem;
     font-weight: 500;
-    background-color: #FFEBEE;
-    border: 1px solid #D32F2F;
+    background-color: #ffebee;
+    border: 1px solid #d32f2f;
     border-radius: 4px;
     padding: 6px 12px;
     margin-top: 6px;
@@ -280,8 +282,8 @@ main section ul li.completed {
 }
 
 .input-error {
-    border-color: #D32F2F;
-    background-color: #FFEBEE;
+    border-color: #d32f2f;
+    background-color: #ffebee;
 }
 
 .desabilitado {
@@ -309,7 +311,9 @@ main section ul li.completed {
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
     outline: none;
     display: flex;
     align-items: center;
@@ -368,16 +372,19 @@ main section ul li.completed {
     font-weight: 500;
 }
 
-#Feitos, #Pendentes {
+#Feitos,
+#Pendentes {
     display: block;
 }
 
-#Pendentes ul, #Feitos ul {
+#Pendentes ul,
+#Feitos ul {
     padding-left: 20px;
     list-style: none;
 }
 
-#Pendentes ul li, #Feitos ul li {
+#Pendentes ul li,
+#Feitos ul li {
     position: relative;
     padding-left: 24px;
     margin: 10px 0;
@@ -386,7 +393,8 @@ main section ul li.completed {
     justify-content: space-between;
 }
 
-#Pendentes ul li::before, #Feitos ul li::before {
+#Pendentes ul li::before,
+#Feitos ul li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -461,7 +469,8 @@ main section ul li.completed {
         font-size: 0.85rem;
     }
 
-    #Pendentes ul li, #Feitos ul li {
+    #Pendentes ul li,
+    #Feitos ul li {
         flex-wrap: wrap;
         gap: 4px;
     }
@@ -570,7 +579,8 @@ main section ul li.completed {
         padding: 5px 10px;
     }
 
-    #Pendentes ul li, #Feitos ul li {
+    #Pendentes ul li,
+    #Feitos ul li {
         flex-wrap: wrap;
         gap: 4px;
         padding-left: 20px;
@@ -688,6 +698,14 @@ main section ul li.completed {
     footer a {
         font-size: 0.55rem;
     }
+}
+.estilo {
+    text-align: center;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
 }
 
 @media (min-width: 1200px) {
